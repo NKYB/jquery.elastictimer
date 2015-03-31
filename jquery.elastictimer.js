@@ -7,9 +7,9 @@
  * 
  * Example Usage
  * 
- *       var elasticTimer = jQuery.elastictimer({minPollTime: 10, maxPollTime: 600, fireEvent: function(){
+ *       var elasticTimer = $().elastictimer({minPollTime: 10, maxPollTime: 600, fireEvent: function(){
  *               console.log('magic event');
- *       }});
+ *       }}).start();
  */
 
 ;(function ( $, window, document, console, undefined ) {
