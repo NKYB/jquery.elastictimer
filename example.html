@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery.ElasticTimer - Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="jquery.elastictimer.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <button id="btn_start">Start</button><button id="btn_stop">Stop</button><div id="debug"></div>
+    <script>
+        $(document).ready(function(){
+            var elasticTimer = $().elastictimer({debug: true, debugSelector: '#debug', minPollTime: 2, maxPollTime: 60, fireEvent: function(){
+                console.log('top secret event');
+                
+                // randomize true/flase response, normally if you found data you would return true and that would trigger more frequent polling
+                return (Math.floor(Math.random() * 2) + 1 == 1) ? false : true;
+            }}).start();
+            $('#btn_start').click(function(){
+                elasticTimer.start();
+            });
+            $('#btn_stop').click(function(){
+                elasticTimer.stop();
+            });
+        });
+        
+    </script>
+</body>
+</html>                 
